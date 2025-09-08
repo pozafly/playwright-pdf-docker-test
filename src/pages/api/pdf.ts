@@ -65,7 +65,7 @@ export default async function handler(
     // inline 미리보기: attachment 대신 inline
     res.setHeader('Content-Disposition', 'inline; filename="document.pdf"');
     res.status(200).send(pdf);
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error(err);
     res.status(500).json({ code: 'E500', message: 'PDF 생성 실패' });
   } finally {
